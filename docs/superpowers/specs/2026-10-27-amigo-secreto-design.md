@@ -2,12 +2,14 @@
 
 **Data:** 2026-10-27
 **Status:** Design aprovado
+**Última revisão:** 2026-10-27 — remoção da sugestão de presente da interface e
+redesenho visual natalino.
 
 ## 1. Objetivo
 
 Oferecer uma página única, compartilhada pela família, onde todos consultam os
-tamanhos, preferências e sugestões de presente dos participantes do amigo
-secreto. Cada pessoa seleciona o próprio nome e atualiza somente a sua linha.
+tamanhos, preferências e interesses dos participantes do amigo secreto. Cada
+pessoa seleciona o próprio nome e atualiza somente a sua linha.
 
 ## 2. Escopo
 
@@ -18,6 +20,7 @@ secreto. Cada pessoa seleciona o próprio nome e atualiza somente a sua linha.
 - Edição da linha da pessoa selecionada, diretamente na tabela.
 - Persistência compartilhada no Supabase.
 - Layout responsivo, com tabela em telas grandes e cartões em telas pequenas.
+- Visual natalino acolhedor, com árvores decorativas e animação suave.
 - Estados de carregamento, lista vazia e erro.
 
 ### Fora do escopo
@@ -84,7 +87,7 @@ Tabela `public.participants`:
 | `shoe_size` | `text` | Numeração de calçado; padrão vazio |
 | `favorite_color` | `text` | Cor favorita; padrão vazio |
 | `interests` | `text` | Interesses; padrão vazio |
-| `gift_suggestion` | `text` | Uma frase com até 200 caracteres; padrão vazio |
+| `gift_suggestion` | `text` | Coluna legada; permanece no banco, mas não é usada pela interface |
 
 Todos os campos de informação são texto livre, inclusive os tamanhos, para
 aceitar variações como "GG", "38/39" ou "M".
@@ -92,7 +95,9 @@ aceitar variações como "GG", "38/39" ou "M".
 ## 6. Segurança e privacidade
 
 - RLS habilitada em `participants`.
-- A chave anônima pode apenas ler e atualizar os seis campos de informação.
+- A chave anônima pode ler e atualizar os campos de informação previstos no
+  schema. A interface usa apenas cinco; `gift_suggestion` é legada e não é
+  exibida nem editada pelo site.
 - Inserção, exclusão e alteração de `name`/`id` são negadas.
 - A chave anônima é pública por natureza e fica versionada em `config.js`.
 - A chave `service_role` nunca é usada no frontend.
@@ -118,9 +123,9 @@ aceitar variações como "GG", "38/39" ou "M".
 ### Editar e salvar
 
 1. Selecionar um nome transforma apenas aquela linha em campos de texto.
-2. O nome permanece fixo; os seis campos de informação são editáveis.
-3. "Salvar" normaliza os valores (trim e frase única) e executa um `UPDATE`
-   pelo `id`, retornando a linha atualizada.
+2. O nome permanece fixo; os cinco campos de informação exibidos são editáveis.
+3. "Salvar" normaliza os valores com trim e executa um `UPDATE` pelo `id`,
+   retornando a linha atualizada.
 4. Em sucesso: atualizar o estado local, sair da edição, limpar o seletor e
    anunciar "Informações salvas com sucesso.".
 5. Em erro: manter a edição e mostrar uma mensagem clara.
@@ -136,16 +141,16 @@ linha, conflitos são improváveis. Os demais veem as mudanças ao recarregar.
 
 - Cabeçalho com título e instrução curta.
 - Seletor "Quem é você?" com a opção inicial "Selecione seu nome".
-- Tabela com as colunas Nome, Calça, Camiseta, Pé, Cor favorita, Interesses,
-  Sugestão de presente e Ações.
+- Tabela com as colunas Nome, Calça, Camiseta, Pé, Cor favorita, Interesses e
+  Ações.
 - Valores vazios são exibidos como "—".
 - Linha selecionada destacada; em edição, os campos viram `input`s com
   `aria-label` e os botões Salvar/Cancelar aparecem na coluna Ações.
 - Em telas com até 760px, cada linha vira um cartão empilhado, com rótulos
   visíveis por campo.
 - Mensagens de status usam `role="status"` e `aria-live="polite"`.
-- Tema claro com tons discretos de vermelho e verde, foco visível e alvos de
-  toque de pelo menos 44px.
+- Tema claro e aconchegante em creme, verde-floresta, cranberry e dourado
+  discreto, com foco visível e alvos de toque de pelo menos 44px.
 - Todo texto vindo do banco é inserido com `textContent` (nunca `innerHTML`).
 
 ## 9. Erros e mensagens
@@ -192,10 +197,29 @@ basta restaurá-los no painel. O README documenta todo o processo.
 
 ## 12. Critérios de aceite
 
-- Uma única página com tabela, uma linha por familiar e todos os campos.
+- Uma única página com tabela, uma linha por familiar e todos os campos
+  exibidos na interface.
 - Seletor de nome e edição restrita à linha selecionada na interface.
 - Dados persistidos e compartilhados após recarregar.
 - Layout legível em celular.
 - Estados de carregamento, vazio e erro funcionando.
 - Hospedagem e banco sem custo.
 - Configuração e manutenção documentadas no README.
+
+## 13. Revisão visual natalina (2026-10-27)
+
+- **Remoção:** a sugestão de presente saiu da tabela, do formulário e do fluxo
+  de salvamento. A coluna `gift_suggestion` permanece no banco como legado.
+- **Paleta:** creme quente, verde-floresta, cranberry e dourado discreto.
+- **Tipografia:** Fraunces nos títulos e Nunito Sans na interface, carregadas
+  via Google Fonts com fallback para fontes locais.
+- **Fundo:** brilhos radiais suaves e silhuetas de árvores em SVG inline,
+  visíveis nas laterais apenas em telas largas.
+- **Árvore animada:** SVG fixo no canto inferior direito, com estrela dourada e
+  luzes em pulsos lentos. A animação é desligada em
+  `prefers-reduced-motion: reduce`.
+- **Detalhes:** cartões de papel, sombras macias, rodapé afetivo e árvore
+  decorativa no estado vazio.
+- **Acessibilidade:** decorações com `aria-hidden`, sem captura de cliques,
+  contraste preservado e alvos de toque de pelo menos 44px.
+- **Banco:** nenhuma alteração de schema, política de RLS ou dado existente.
