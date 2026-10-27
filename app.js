@@ -16,7 +16,6 @@ const FIELD_LABELS = {
   shoe_size: 'Pé',
   favorite_color: 'Cor favorita',
   interests: 'Interesses',
-  gift_suggestion: 'Sugestão de presente',
 };
 
 const select = document.querySelector('#person-select');
@@ -167,11 +166,6 @@ function buildEditRow(participant) {
     input.value = participant[field] ?? '';
     input.setAttribute('aria-label', FIELD_LABELS[field]);
     input.autocomplete = 'off';
-
-    if (field === 'gift_suggestion') {
-      input.maxLength = 200;
-      input.placeholder = 'Uma frase curta';
-    }
 
     cell.append(input);
     row.append(cell);

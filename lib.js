@@ -4,10 +4,7 @@ export const TEXT_FIELDS = [
   'shoe_size',
   'favorite_color',
   'interests',
-  'gift_suggestion',
 ];
-
-const GIFT_SUGGESTION_MAX_LENGTH = 200;
 
 export function sortParticipants(participants) {
   return [...participants].sort((a, b) =>
@@ -28,11 +25,6 @@ export function normalizeFields(input) {
     const value = typeof source[field] === 'string' ? source[field].trim() : '';
     result[field] = value;
   }
-
-  result.gift_suggestion = result.gift_suggestion
-    .replace(/\s+/g, ' ')
-    .slice(0, GIFT_SUGGESTION_MAX_LENGTH)
-    .trim();
 
   return result;
 }

@@ -30,7 +30,7 @@ test('displayValue mostra travessão para valores vazios', () => {
   assert.equal(displayValue('  M  '), 'M');
 });
 
-test('normalizeFields faz trim em todos os campos', () => {
+test('normalizeFields faz trim em todos os campos exibidos', () => {
   assert.deepEqual(
     normalizeFields({
       pants_size: '  42 ',
@@ -38,7 +38,7 @@ test('normalizeFields faz trim em todos os campos', () => {
       shoe_size: ' 38 ',
       favorite_color: ' azul ',
       interests: ' livros ',
-      gift_suggestion: ' um livro ',
+      gift_suggestion: ' ignorado ',
     }),
     {
       pants_size: '42',
@@ -46,7 +46,6 @@ test('normalizeFields faz trim em todos os campos', () => {
       shoe_size: '38',
       favorite_color: 'azul',
       interests: 'livros',
-      gift_suggestion: 'um livro',
     },
   );
 });
@@ -54,32 +53,33 @@ test('normalizeFields faz trim em todos os campos', () => {
 test('normalizeFields trata campos ausentes', () => {
   const normalized = normalizeFields({});
   assert.equal(normalized.pants_size, '');
-  assert.equal(normalized.gift_suggestion, '');
+  assert.equal(normalized.interests, '');
+  assert.equal('gift_suggestion' in normalized, false);
 });
 
-test('normalizeFields transforma a sugestão em linha única', () => {
-  const normalized = normalizeFields({ gift_suggestion: '  um\npresente   legal  ' });
-  assert.equal(normalized.gift_suggestion, 'um presente legal');
-});
+test('normalizeFields não inclui a sugestão de presente', () => {
+  const normalized = normalizeFields({
+    interests: ' livros ',
+    gift_suggestion: 'um livro',
+  });
 
-test('normalizeFields limita a sugestão a 200 caracteres', () => {
-  assert.equal(normalizeFields({ gift_suggestion: 'a'.repeat(250) }).gift_suggestion.length, 200);
+  assert.deepEqual(Object.keys(normalized), TEXT_FIELDS);
+  assert.equal('gift_suggestion' in normalized, false);
 });
 
 test('normalizeFields ignora campos que não são texto', () => {
-  const normalized = normalizeFields({ interests: 42, gift_suggestion: null });
+  const normalized = normalizeFields({ interests: 42, pants_size: null });
   assert.equal(normalized.interests, '');
-  assert.equal(normalized.gift_suggestion, '');
+  assert.equal(normalized.pants_size, '');
 });
 
-test('TEXT_FIELDS contém os seis campos editáveis', () => {
+test('TEXT_FIELDS contém os cinco campos editáveis', () => {
   assert.deepEqual(TEXT_FIELDS, [
     'pants_size',
     'shirt_size',
     'shoe_size',
     'favorite_color',
     'interests',
-    'gift_suggestion',
   ]);
 });
 
@@ -90,7 +90,6 @@ test('fieldsChanged detecta mudanças após normalização', () => {
     shoe_size: '38',
     favorite_color: 'azul',
     interests: 'livros',
-    gift_suggestion: 'um livro',
   };
   assert.equal(fieldsChanged(original, { ...original, pants_size: ' 42 ' }), false);
   assert.equal(fieldsChanged(original, { ...original, pants_size: '44' }), true);
