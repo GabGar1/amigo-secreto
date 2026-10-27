@@ -1,9 +1,9 @@
 # Site de Amigo Secreto da Família Garbrecht — Especificação
 
 **Data:** 2026-10-27
-**Status:** Design aprovado
+**Status:** Design aprovado e implementado
 **Última revisão:** 2026-10-27 — remoção da sugestão de presente da interface e
-redesenho visual natalino.
+redesenho visual natalino concluído.
 
 ## 1. Objetivo
 

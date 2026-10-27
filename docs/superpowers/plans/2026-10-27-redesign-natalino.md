@@ -1,6 +1,6 @@
 # Redesenho Natalino — Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [x]`) syntax for tracking.
 
 **Goal:** Remover a sugestão de presente da interface e aplicar um visual natalino acolhedor, com árvores decorativas no fundo e uma árvore com luzes piscando no canto inferior direito.
 
@@ -58,7 +58,7 @@ critérios de aceite e adicionar a seção de revisão visual.
 
 - [x] **Step 3: Criar este plano**
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add docs/
@@ -80,7 +80,7 @@ git commit -m "docs: planeja redesenho natalino"
 - Produces: `TEXT_FIELDS` com cinco campos:
   `pants_size`, `shirt_size`, `shoe_size`, `favorite_color`, `interests`.
 
-- [ ] **Step 1: Atualizar os testes primeiro**
+- [x] **Step 1: Atualizar os testes primeiro**
 
 Alterar `tests/lib.test.js` para esperar cinco campos:
 
@@ -110,7 +110,7 @@ Remover os testes específicos de linha única, limite de 200 caracteres e
 normalização da sugestão. Ajustar os testes de trim, campos ausentes e
 `fieldsChanged` para não usarem `gift_suggestion`.
 
-- [ ] **Step 2: Rodar os testes e confirmar a falha**
+- [x] **Step 2: Rodar os testes e confirmar a falha**
 
 ```bash
 node --test
@@ -118,7 +118,7 @@ node --test
 
 Expected: falha em `TEXT_FIELDS` e no teste de ausência da sugestão.
 
-- [ ] **Step 3: Atualizar `lib.js`**
+- [x] **Step 3: Atualizar `lib.js`**
 
 ```js
 export const TEXT_FIELDS = [
@@ -145,13 +145,13 @@ export function normalizeFields(input) {
 Remover `GIFT_SUGGESTION_MAX_LENGTH` e o bloco especial de
 `gift_suggestion`.
 
-- [ ] **Step 4: Atualizar `app.js` e `index.html`**
+- [x] **Step 4: Atualizar `app.js` e `index.html`**
 
 - Remover `gift_suggestion: 'Sugestão de presente'` de `FIELD_LABELS`.
 - Remover o bloco `if (field === 'gift_suggestion')` de `buildEditRow`.
 - Remover a coluna `<th scope="col">Sugestão de presente</th>`.
 
-- [ ] **Step 5: Rodar testes e checagem de sintaxe**
+- [x] **Step 5: Rodar testes e checagem de sintaxe**
 
 ```bash
 node --test
@@ -161,7 +161,7 @@ node --check lib.js
 
 Expected: todos os testes passando, sem erros de sintaxe.
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add lib.js app.js index.html tests/lib.test.js
@@ -181,7 +181,7 @@ git commit -m "feat: remove sugestao de presente da interface"
   `participants-table`, `participants-body`, `empty-state`, `actions-header`).
 - Produces: classes decorativas e de layout consumidas apenas pelo CSS.
 
-- [ ] **Step 1: Adicionar fontes e marcação decorativa**
+- [x] **Step 1: Adicionar fontes e marcação decorativa**
 
 No `<head>`:
 
@@ -205,7 +205,7 @@ No `<body>`, adicionar:
   tronco, três camadas, estrela e luzes (`circle.bulb`).
 - Todos os elementos decorativos com `aria-hidden="true"` e `focusable="false"`.
 
-- [ ] **Step 2: Reescrever o CSS**
+- [x] **Step 2: Reescrever o CSS**
 
 Aplicar:
 
@@ -232,7 +232,7 @@ Aplicar:
 - No breakpoint de 760px, manter a transformação da tabela em cartões e
   esconder as árvores laterais.
 
-- [ ] **Step 3: Verificar localmente**
+- [x] **Step 3: Verificar localmente**
 
 ```bash
 python3 -m http.server 8000
@@ -246,7 +246,7 @@ Abrir `http://localhost:8000` e conferir:
 - Layout mobile em 390px sem overflow.
 - Redução de movimento desativa a animação.
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add index.html styles.css
@@ -266,7 +266,7 @@ git commit -m "feat: aplica visual natalino acolhedor"
 - Consumes: site local/publicado e projeto Supabase existente.
 - Produces: versão validada e publicada.
 
-- [ ] **Step 1: Rodar testes e checagens**
+- [x] **Step 1: Rodar testes e checagens**
 
 ```bash
 node --test
@@ -277,7 +277,7 @@ git diff --check
 
 Expected: 9 testes passando, sem erros de sintaxe ou whitespace.
 
-- [ ] **Step 2: Testar no navegador com dados simulados**
+- [x] **Step 2: Testar no navegador com dados simulados**
 
 Usar Playwright temporário em `/tmp/opencode/pw`:
 
@@ -294,7 +294,7 @@ Usar Playwright temporário em `/tmp/opencode/pw`:
 - Confirmar ausência de overflow horizontal em 390px.
 - Salvar screenshots de desktop, mobile e estado vazio e revisar.
 
-- [ ] **Step 3: Atualizar o README**
+- [x] **Step 3: Atualizar o README**
 
 - Remover a sugestão de presente da descrição, funcionalidades, uso e checklist.
 - Atualizar a contagem de campos para cinco.
@@ -302,7 +302,7 @@ Usar Playwright temporário em `/tmp/opencode/pw`:
 - Manter instruções de Supabase, segurança, testes e deploy.
 - Registrar a URL publicada.
 
-- [ ] **Step 4: Commit, push e aguardar o GitHub Pages**
+- [x] **Step 4: Commit, push e aguardar o GitHub Pages**
 
 ```bash
 git add README.md docs/
@@ -312,7 +312,7 @@ git push
 
 Aguardar o build do Pages e validar `https://gabgar1.github.io/amigo-secreto/`.
 
-- [ ] **Step 5: Validação final**
+- [x] **Step 5: Validação final**
 
 - Abrir a URL publicada.
 - Confirmar que o estado vazio e as decorações carregam.
