@@ -20,10 +20,12 @@
 
     <section class="identity" aria-labelledby="identity-label">
       <label id="identity-label" for="person-select">Quem é você?</label>
-      <select id="person-select" disabled>
+      <select id="person-select" aria-describedby="identity-hint" disabled>
         <option value="">Carregando participantes…</option>
       </select>
-      <p class="hint">Você poderá editar apenas a linha do nome selecionado.</p>
+      <p id="identity-hint" class="hint">
+        Você poderá editar apenas a linha do nome selecionado.
+      </p>
     </section>
 
     <p id="status" class="status" role="status" aria-live="polite"></p>
@@ -42,7 +44,7 @@
               <th scope="col">Cor favorita</th>
               <th scope="col">Interesses</th>
               <th scope="col">Sugestão de presente</th>
-              <th scope="col">Ações</th>
+              <th scope="col" id="actions-header" hidden>Ações</th>
             </tr>
           </thead>
           <tbody id="participants-body"></tbody>

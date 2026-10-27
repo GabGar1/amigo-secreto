@@ -24,6 +24,7 @@ const status = document.querySelector('#status');
 const table = document.querySelector('#participants-table');
 const tbody = document.querySelector('#participants-body');
 const emptyState = document.querySelector('#empty-state');
+const actionsHeader = document.querySelector('#actions-header');
 
 const supabase = isConfigured(SUPABASE_URL, SUPABASE_ANON_KEY)
   ? createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
@@ -83,6 +84,7 @@ function render() {
   tbody.replaceChildren();
   table.hidden = participants.length === 0;
   emptyState.hidden = participants.length > 0;
+  actionsHeader.hidden = !editing;
 
   for (const participant of participants) {
     const row =
