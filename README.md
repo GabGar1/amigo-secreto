@@ -64,6 +64,16 @@ O projeto do Supabase já se chama `amigo-secreto`. Configure-o assim:
    cada familiar. Preencha apenas o `name`; os demais campos podem ficar
    vazios e serão preenchidos por cada pessoa. Não repita nomes.
 
+   Se preferir cadastrar todos de uma vez, execute no SQL Editor trocando os
+   nomes de exemplo:
+
+   ```sql
+   insert into public.participants (name) values
+     ('Nome do familiar 1'),
+     ('Nome do familiar 2')
+   on conflict (name) do nothing;
+   ```
+
 O schema cria a tabela, ativa RLS e permite apenas leitura e atualização dos
 seis campos de informação pela chave anônima. Inserção, exclusão e alteração
 de `name`/`id` são bloqueadas.
