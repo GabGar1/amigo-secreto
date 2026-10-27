@@ -6,6 +6,9 @@ a sua linha; todos veem as mudanças ao recarregar a página.
 
 **Site publicado:** https://gabgar1.github.io/amigo-secreto/
 
+**Data do encontro:** 11/12/2026
+**Valor do presente:** mínimo de R$ 50, sem valor máximo.
+
 ## Funcionalidades
 
 - Tabela com todos os participantes e os campos:
@@ -168,6 +171,7 @@ Requer Node.js 18 ou superior.
 - [ ] Com o Supabase configurado e sem participantes, aparece o estado vazio.
 - [ ] Com participantes, a tabela exibe todos em ordem alfabética.
 - [ ] Valores vazios aparecem como "—".
+- [ ] A data 11/12/2026 e a regra de valor mínimo de R$ 50 estão visíveis.
 - [ ] Selecionar um nome deixa apenas aquela linha editável.
 - [ ] Salvar mostra a confirmação, volta a linha para leitura e limpa o
       seletor.

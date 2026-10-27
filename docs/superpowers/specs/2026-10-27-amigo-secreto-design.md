@@ -9,7 +9,9 @@ redesenho visual natalino concluído.
 
 Oferecer uma página única, compartilhada pela família, onde todos consultam os
 tamanhos, preferências e interesses dos participantes do amigo secreto. Cada
-pessoa seleciona o próprio nome e atualiza somente a sua linha.
+pessoa seleciona o próprio nome e atualiza somente a sua linha. A página também
+exibe a data do encontro (11/12/2026) e a regra do presente (mínimo de R$ 50,
+sem valor máximo).
 
 ## 2. Escopo
 
@@ -140,6 +142,8 @@ linha, conflitos são improváveis. Os demais veem as mudanças ao recarregar.
 ## 8. Interface
 
 - Cabeçalho com título e instrução curta.
+- Banner com a data do encontro (11/12/2026) e a regra do presente (mínimo de
+  R$ 50, sem valor máximo), responsivo e empilhado no celular.
 - Seletor "Quem é você?" com a opção inicial "Selecione seu nome".
 - Tabela com as colunas Nome, Calça, Camiseta, Pé, Cor favorita, Interesses e
   Ações.
@@ -199,6 +203,7 @@ basta restaurá-los no painel. O README documenta todo o processo.
 
 - Uma única página com tabela, uma linha por familiar e todos os campos
   exibidos na interface.
+- Data do encontro e regra do presente visíveis na página.
 - Seletor de nome e edição restrita à linha selecionada na interface.
 - Dados persistidos e compartilhados após recarregar.
 - Layout legível em celular.
