@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Amigo Secreto da Família Garbrecht</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="container">
+    <header class="page-header">
+      <p class="eyebrow">Natal em família</p>
+      <h1>Amigo Secreto da Família Garbrecht</h1>
+      <p class="intro">
+        Consulte os tamanhos e as preferências de todos. Para atualizar seus dados,
+        selecione seu nome e edite a sua linha.
+      </p>
+    </header>
+
+    <section class="identity" aria-labelledby="identity-label">
+      <label id="identity-label" for="person-select">Quem é você?</label>
+      <select id="person-select" disabled>
+        <option value="">Carregando participantes…</option>
+      </select>
+      <p class="hint">Você poderá editar apenas a linha do nome selecionado.</p>
+    </section>
+
+    <p id="status" class="status" role="status" aria-live="polite"></p>
+
+    <section class="table-section" aria-labelledby="table-title">
+      <h2 id="table-title" class="sr-only">Participantes</h2>
+      <div class="table-wrap">
+        <table id="participants-table" hidden>
+          <caption class="sr-only">Informações dos participantes do amigo secreto</caption>
+          <thead>
+            <tr>
+              <th scope="col">Nome</th>
+              <th scope="col">Calça</th>
+              <th scope="col">Camiseta</th>
+              <th scope="col">Pé</th>
+              <th scope="col">Cor favorita</th>
+              <th scope="col">Interesses</th>
+              <th scope="col">Sugestão de presente</th>
+              <th scope="col">Ações</th>
+            </tr>
+          </thead>
+          <tbody id="participants-body"></tbody>
+        </table>
+      </div>
+      <div id="empty-state" class="empty-state" hidden>
+        <p>Nenhum participante cadastrado ainda.</p>
+        <p>Adicione os nomes pela tabela <code>participants</code> no Supabase.</p>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
