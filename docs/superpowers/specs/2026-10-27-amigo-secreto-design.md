@@ -185,7 +185,7 @@ Manual:
 3. Copiar Project URL e chave `anon public` para `config.js`.
 4. Cadastrar os nomes no Table Editor.
 5. Publicar no GitHub Pages a partir da branch `main` (raiz).
-6. URL final: `https://<usuario>.github.io/amigo-secreto/`.
+6. URL final: `https://gabgar1.github.io/amigo-secreto/`.
 
 Projetos gratuitos do Supabase podem ser pausados por inatividade; nesse caso,
 basta restaurá-los no painel. O README documenta todo o processo.

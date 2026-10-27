@@ -4,6 +4,8 @@ Página única para a família consultar tamanhos, preferências e sugestões de
 presente do amigo secreto. Cada pessoa seleciona o próprio nome e atualiza a
 sua linha; todos veem as mudanças ao recarregar a página.
 
+**Site publicado:** https://gabgar1.github.io/amigo-secreto/
+
 ## Funcionalidades
 
 - Tabela com todos os participantes e os campos:
@@ -96,7 +98,7 @@ as importações via CDN exigem um servidor HTTP.
 6. Aguarde a publicação e acesse:
 
    ```text
-   https://<usuario>.github.io/amigo-secreto/
+   https://gabgar1.github.io/amigo-secreto/
    ```
 
 Cada push para `main` atualiza o site. Se a URL ou a chave do Supabase mudarem,
