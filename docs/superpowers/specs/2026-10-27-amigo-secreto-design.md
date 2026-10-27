@@ -1,4 +1,4 @@
-# Site de Amigo Secreto da Família — Especificação
+# Site de Amigo Secreto da Família Garbrecht — Especificação
 
 **Data:** 2026-10-27
 **Status:** Design aprovado

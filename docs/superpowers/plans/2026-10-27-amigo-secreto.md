@@ -1,4 +1,4 @@
-# Site de Amigo Secreto da Família — Implementation Plan
+# Site de Amigo Secreto da Família Garbrecht — Implementation Plan
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
@@ -386,14 +386,14 @@ git commit -m "feat: adiciona schema e politicas do Supabase"
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <title>Amigo Secreto da Família</title>
+  <title>Amigo Secreto da Família Garbrecht</title>
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
   <main class="container">
     <header class="page-header">
       <p class="eyebrow">Natal em família</p>
-      <h1>Amigo Secreto da Família</h1>
+      <h1>Amigo Secreto da Família Garbrecht</h1>
       <p class="intro">
         Consulte os tamanhos e as preferências de todos. Para atualizar seus dados,
         selecione seu nome e edite a sua linha.
