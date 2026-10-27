@@ -1,20 +1,21 @@
 # Amigo Secreto da Família Garbrecht
 
-Página única para a família consultar tamanhos, preferências e sugestões de
-presente do amigo secreto. Cada pessoa seleciona o próprio nome e atualiza a
-sua linha; todos veem as mudanças ao recarregar a página.
+Página única para a família consultar tamanhos, preferências e interesses dos
+participantes do amigo secreto. Cada pessoa seleciona o próprio nome e atualiza
+a sua linha; todos veem as mudanças ao recarregar a página.
 
 **Site publicado:** https://gabgar1.github.io/amigo-secreto/
 
 ## Funcionalidades
 
 - Tabela com todos os participantes e os campos:
-  nome, tamanho de calça, tamanho de camiseta, tamanho de pé, cor favorita,
-  interesses e sugestão de presente.
+  nome, tamanho de calça, tamanho de camiseta, tamanho de pé, cor favorita e
+  interesses.
 - Seletor "Quem é você?" para identificar a pessoa.
 - Edição na própria tabela, restrita à linha do nome selecionado.
 - Persistência compartilhada no Supabase.
 - Layout responsivo: tabela no computador e cartões no celular.
+- Visual natalino acolhedor, com árvores de fundo e uma árvore iluminada.
 - Estados de carregamento, lista vazia, erro de carregamento e erro ao salvar.
 
 ## Tecnologias
@@ -75,8 +76,9 @@ O projeto do Supabase já se chama `amigo-secreto`. Configure-o assim:
    ```
 
 O schema cria a tabela, ativa RLS e permite apenas leitura e atualização dos
-seis campos de informação pela chave anônima. Inserção, exclusão e alteração
-de `name`/`id` são bloqueadas.
+campos de informação pela chave anônima. A interface usa cinco campos; a coluna
+legada `gift_suggestion` permanece no banco, mas não é exibida nem editada pelo
+site. Inserção, exclusão e alteração de `name`/`id` são bloqueadas.
 
 ## Rodar localmente
 
@@ -135,13 +137,11 @@ atualize `config.js` e faça novo push.
 ## Uso
 
 1. Abra o site e escolha seu nome em **Quem é você?**.
-2. Preencha seus tamanhos, cor favorita, interesses e sugestão de presente.
+2. Preencha seus tamanhos, cor favorita e interesses.
 3. Clique em **Salvar**.
 4. Para consultar outra pessoa, recarregue a página ou selecione outro nome.
 5. **Cancelar** descarta a edição. Trocar de nome com alterações pendentes pede
    confirmação.
-
-A sugestão de presente deve ser uma única frase de até 200 caracteres.
 
 ## Testes
 
@@ -176,6 +176,9 @@ Requer Node.js 18 ou superior.
 - [ ] Trocar de pessoa com edição pendente pede confirmação.
 - [ ] Desligar a rede e tentar salvar exibe erro sem perder os campos.
 - [ ] O layout funciona em uma tela de 360px de largura.
+- [ ] A árvore do canto aparece e as luzes piscam suavemente.
+- [ ] Com "reduzir movimento" ativado, a árvore permanece estática.
+- [ ] As árvores de fundo aparecem em telas grandes sem atrapalhar a leitura.
 - [ ] A navegação por teclado alcança o seletor, os campos e os botões.
 
 ### Conferir as políticas do Supabase
