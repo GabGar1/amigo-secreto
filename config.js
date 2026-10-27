@@ -1,2 +1,3 @@
-export const SUPABASE_URL = 'https://SEU-PROJETO.supabase.co';
-export const SUPABASE_ANON_KEY = 'SUA-CHAVE-ANON-PUBLICA';
+export const SUPABASE_URL = 'https://sieehkyypifvlkznzzgv.supabase.co';
+export const SUPABASE_ANON_KEY =
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNpZWVoa3l5cGlmdmxrem56emd2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTMxMzI5MDAsImV4cCI6MjEwODcwODkwMH0.pDDEL9YyccJOSwaUp7PjvFW-vJHt-9KNNu_wU_sG7hM';
